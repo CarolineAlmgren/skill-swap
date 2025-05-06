@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // Gör att TypeScript använder nyaste ES-funktionerna
+    "lib": ["dom", "esnext"], // Lägg till DOM och ES
+    "allowJs": true, // Tillåt JavaScript-filer
+    "esModuleInterop": true, // Hantera ES-moduler korrekt
+    "skipLibCheck": true, // För att snabba upp byggprocessen
+    "forceConsistentCasingInFileNames": true, // För konsistens i filnamn
+    "strict": true, // För strikt typkontroll
+    "module": "esnext", // Använd ES-moduler
+    "moduleResolution": "node", // För korrekt modulupplösning
+    "resolveJsonModule": true, // Stöd för JSON-importer
+    "isolatedModules": true, // Isolera moduler
+    "noEmit": true, // Ingen filutmatning
+    "jsx": "react-jsx" // Viktig för React 17 och senare
+  },
+  "include": ["src"]
+}

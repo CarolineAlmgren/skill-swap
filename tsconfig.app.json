@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // Målet är att använda nyaste ES-funktioner
+    "lib": ["dom", "esnext"], // Lägg till DOM och ES bibliotek
+    "allowJs": true, // Tillåt JavaScript-filer
+    "esModuleInterop": true, // Gör att vi kan importera ES-moduler korrekt
+    "skipLibCheck": true, // Hoppa över bibliotekskontroll
+    "forceConsistentCasingInFileNames": true, // För att säkerställa konsekvent filnamn
+    "strict": true, // Aktiverar strikt typkontroll
+    "module": "esnext", // Använd ES-modulformat
+    "moduleResolution": "node", // För att säkerställa rätt modulupplösning
+    "resolveJsonModule": true, // Stöd för JSON-importer
+    "isolatedModules": true, // Tillåt isolerade moduler för snabbare bygg
+    "noEmit": true, // Ingen filutmatning
+    "jsx": "react-jsx" // Viktig för React 17 och senare, JSX-transform
+  },
+  "include": [
+    "src" // Inkludera koden från src-mappen
+  ]
+}
