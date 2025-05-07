@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Navbar = () => (
+export const NavbarLoggedOut = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
       <Link to="/" className="navbar-brand">
@@ -20,18 +20,13 @@ export const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <Link to="/" className="nav-link active">
-              Hem
+            <Link to="/" className="nav-link">
+              Logga in
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/skills" className="nav-link">
-              Mina skills
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/add" className="nav-link">
-              Lägg till skills
+            <Link to="/createaccount" className="nav-link">
+              Skapa konto
             </Link>
           </li>
         </ul>
