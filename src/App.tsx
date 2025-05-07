@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { AddSkill } from "./pages/AddSkill";
-import SkillsList from "./pages/SkillsList";
+import { SkillsList } from "./pages/SkillsList";
 
 function App() {
   return (
