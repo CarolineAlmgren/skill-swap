@@ -2,19 +2,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { AddSkill } from "./pages/AddSkill";
-import { SkillsList } from "./pages/SkillsList";
-import { NavbarLoggedOut } from "./components/NavbarLoggedOut";
+import { MySkills } from "./pages/MySkills";
 import { CreateAccount } from "./pages/CreateAccount";
+import { LoggedIn } from "./pages/LoggedIn";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavbarLoggedOut />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<AddSkill />} />
-        <Route path="/skills" element={<SkillsList />} />
+        <Route path="/skills" element={<MySkills />} />
         <Route path="/createaccount" element={<CreateAccount />} />
+        <Route path="/loggedin" element={<LoggedIn />} />
       </Routes>
     </BrowserRouter>
   );

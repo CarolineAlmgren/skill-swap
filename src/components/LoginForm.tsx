@@ -14,7 +14,7 @@ export const LoginForm = () => {
     if (error) {
       alert("Fel vid inloggning: " + error.message);
     } else {
-      alert("Inloggning lyckades!");
+      navigate("/loggedin");
     }
   };
 

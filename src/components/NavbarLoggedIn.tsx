@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const NavbarLoggedIn = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
-      <Link to="/" className="navbar-brand">
+      <Link to="/loggedin" className="navbar-brand">
         SkillSwap
       </Link>
       <button
@@ -20,18 +20,18 @@ export const NavbarLoggedIn = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <Link to="/" className="nav-link active">
-              Hem
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/skills" className="nav-link">
+            <Link to="/skills" className="nav-link active">
               Mina skills
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/add" className="nav-link">
               Lägg till skills
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              Logga ut
             </Link>
           </li>
         </ul>

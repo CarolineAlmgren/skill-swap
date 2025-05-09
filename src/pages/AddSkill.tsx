@@ -1,51 +1,50 @@
 import { useState } from "react";
-import { supabase } from "../supabaseClient";
-import { useSession } from "@supabase/auth-helpers-react";
+import { addSkill } from "../services/skillService";
+import { getCurrentUser } from "../services/userService";
+import { NavbarLoggedIn } from "../components/NavbarLoggedIn";
 
 export const AddSkill = () => {
   const [canTech, setCanTech] = useState("");
   const [wantsToLearn, setWantsToLearn] = useState("");
-  const session = useSession();
 
   const handleSubmit = async () => {
-    if (!session) {
-      alert("Du måste vara inloggad för att lägga till en skill.");
-      return;
-    }
+    try {
+      const user = await getCurrentUser();
+      if (!user) throw new Error("Ingen användare inloggad");
 
-    const { error } = await supabase.from("skills").insert([
-      {
-        can_tech: canTech,
-        wants_to_learn: wantsToLearn,
-        user_name: session.user.email, // eller annan identifierare
-        user_id: session.user.id,
-      },
-    ]);
+      const userId = user.id;
+      const userName = user.user_metadata.user_name || user.email; // eller något du sparar
 
-    if (error) alert("Fel: " + error.message);
-    else {
+      await addSkill(userId, userName, canTech, wantsToLearn);
       alert("Skill tillagd!");
       setCanTech("");
       setWantsToLearn("");
+    } catch (error) {
+      alert("Fel: " + error);
     }
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Lägg till en skill</h2>
-      <input
-        placeholder="Vad kan jag?"
-        value={canTech}
-        onChange={(e) => setCanTech(e.target.value)}
-      />
-      <br />
-      <input
-        placeholder="Vad vill jag lära dig?"
-        value={wantsToLearn}
-        onChange={(e) => setWantsToLearn(e.target.value)}
-      />
-      <br />
-      <button onClick={handleSubmit}>Lägg till</button>
+    <div>
+      <NavbarLoggedIn />
+      <div className="p-5" style={{ maxWidth: 500, margin: "0 auto" }}>
+        <h2 className="mb-4">Lägg till en skill</h2>
+        <input
+          placeholder="Vad kan jag?"
+          className="form-control mb-3"
+          value={canTech}
+          onChange={(e) => setCanTech(e.target.value)}
+        />
+        <input
+          placeholder="Vad vill jag lära mig?"
+          className="form-control mb-4"
+          value={wantsToLearn}
+          onChange={(e) => setWantsToLearn(e.target.value)}
+        />
+        <button onClick={handleSubmit} className="btn btn-dark w-100">
+          Lägg till
+        </button>
+      </div>
     </div>
   );
 };
